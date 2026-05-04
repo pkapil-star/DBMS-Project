@@ -63,7 +63,7 @@ export function AnalysisTab({ onNewResult }: Props) {
     setResult(null);
 
     try {
-      const res = await fetch("http://127.0.0.1:5000/analyze", {
+      const res = await fetch("http://127.0.0.1:5001/analyze", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query }),
@@ -80,7 +80,7 @@ export function AnalysisTab({ onNewResult }: Props) {
     } catch (err: any) {
       setError(
         err.message === "Failed to fetch"
-          ? "Unable to connect to the API server. Make sure the Flask backend is running on http://127.0.0.1:5000"
+          ? "Unable to connect to the API server. Make sure the Flask backend is running on http://127.0.0.1:5001"
           : `Analysis failed: ${err.message}`
       );
     } finally {
